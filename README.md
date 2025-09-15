@@ -1,21 +1,59 @@
-# MySQL
-SQL is case insensitive eg; you can write the query as CRETAE DATABASE or create database both are same.
+# 📘 My Learnings of MySQL
 
-**My-learnings-of-MySQL**
+> **Note:** SQL is case-insensitive.  
+Example: `CREATE DATABASE` and `create database` both are the same.
 
-I learnt SQL Queries like,
+---
 
-**CREATE DATABASE** database_name
+## 🔹 SQL Queries
 
-**CREATE TABLE** table_name (
-column_heading1 datatype constraints
-column_heading2 datatype constraints
+```sql
+-- 1. Create a Database
+CREATE DATABASE SchoolDB;
+
+-- 2. Use a Database
+USE SchoolDB;
+
+-- 3. Create a Table
+CREATE TABLE Students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    age INT CHECK (age > 0),
+    grade VARCHAR(10)
 );
 
-**INSERT INTO **table_name (entry1, entry2);
+-- 4. Insert Data
+INSERT INTO Students (student_id, name, age, grade)
+VALUES 
+(1, 'Alice', 20, 'A'),
+(2, 'Bob', 21, 'B'),
+(3, 'Charlie', 19, 'A');
 
-**USE** database_name;
+-- 5. Select Data
+SELECT * FROM Students;
 
-**SELECT * FROM** database_name;
+-- 6. Drop a Table
+DROP TABLE Students;
 
-**DROP TABLE** table_name;
+
+flowchart TD
+    A[Create Database] --> B[Use Database]
+    B --> C[Create Table]
+    C --> D[Insert Data]
+    D --> E[Select Data]
+    E --> F[Drop Table]
+
+📌 Summary
+
+CREATE DATABASE → Make a new database
+
+USE → Switch to the database
+
+CREATE TABLE → Define table structure
+
+INSERT INTO → Add records
+
+SELECT → Retrieve data
+
+DROP TABLE → Delete a table
+
