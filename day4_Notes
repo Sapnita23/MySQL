@@ -1,0 +1,162 @@
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+LIMIT number;
+ 
+ selects the first three records from the "Customers" table
+ 
+SELECT * FROM Customers
+LIMIT 3;
+ 
+OFFSET
+ 
+return only 3 records, start on record 4
+ 
+SELECT * FROM Customers LIMIT 3 OFFSET 3;
+ 
+first three records from the "Customers" table, where the country is "Germany"
+ 
+SELECT * FROM Customers
+WHERE Country='Germany'
+LIMIT 3;
+ 
+ 
+sorts the customers by country before returning the first three records from the selection
+ 
+SELECT * FROM Customers
+ORDER BY Country
+LIMIT 3;
+ 
+SELECT *
+
+FROM your_table
+
+ORDER BY id DESC
+
+LIMIT 3;
+
+ 
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+ 
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+ 
+finds the price of the cheapest product
+ 
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+ 
+SELECT column_name(s)
+FROM table_name AS alias_name;
+ 
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+ 
+SELECT AVG(column_name)
+FROM table_name
+WHERE condition;
+ 
+SELECT SUM(column_name)
+FROM table_name
+WHERE condition;
+ 
+statement finds the number of products
+ 
+SELECT COUNT(ProductID)
+FROM Products;
+ 
+SELECT AVG(Price)
+FROM Products
+ 
+-- Create table
+
+CREATE TABLE OrderDetails (
+
+    OrderDetailID INT PRIMARY KEY,
+
+    OrderID INT NOT NULL,
+
+    ProductID INT NOT NULL,
+
+    Quantity INT NOT NULL
+
+);
+ 
+-- Insert sample data
+
+INSERT INTO OrderDetails (OrderDetailID, OrderID, ProductID, Quantity) VALUES
+
+(1, 10248, 11, 12),
+
+(2, 10248, 42, 10),
+
+(3, 10248, 72, 5),
+
+(4, 10249, 14, 9),
+
+(5, 10249, 51, 40);
+finds the sum of the "Quantity" fields in the "OrderDetails"
+finds the sum of the "Quantity" fields in the "OrderDetails"
+ 
+-- This is a single-line comment
+
+SELECT * FROM OrderDetails;
+
+ 
+/* 
+
+   This is a multi-line comment.
+
+   It can span across several lines.
+
+*/
+
+SELECT * FROM OrderDetails;
+
+ 
+So in your CREATE TABLE and INSERT scripts, you can use either -- or # for short comments, and /* ... */ for bigger notes
+ 
+SELECT column1, column2, ...
+FROM table_name
+WHERE columnN LIKE pattern;
+ 
+selects all customers with a CustomerName that have "or" in any position
+ 
+selects all customers with a CustomerName that have "r" in the second position
+ 
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%or%';
+ 
+SELECT * FROM Customers
+WHERE CustomerName LIKE '_r%'
+ 
+selects all customers with a CustomerName that starts with "a" and are at least 3 characters in length
+ 
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a__%';
+ 
+selects all customers with a ContactName that starts with "a" and ends with "o"
+selects all customers with a CustomerName that does NOT start with "a"
+
+WHERE CustomerName LIKE 'a%'	Finds any values that starts with "a"
+WHERE CustomerName LIKE '%a'	Finds any values that ends with "a"
+WHERE CustomerName LIKE '%or%'	Finds any values that have "or" in any position
+WHERE CustomerName LIKE '_r%'	Finds any values that have "r" in the second position
+WHERE CustomerName LIKE 'a_%_%'	Finds any values that starts with "a" and are at least 3 characters in length
+WHERE ContactName LIKE 'a%o'	Finds any values that starts with "a" and ends with "o"
+
+statement selects all customers with a City starting with "ber"
+statement selects all customers with a City containing the pattern "es"
+selects all customers with a City starting with any character, followed by "ondon"
+selects all customers with a City starting with "L", followed by any character, followed by "n", followed by any character, followed by "on
+
+"Ana" → a + 2 underscores (na) + % (rest of name).
+"Antonio" → a + nt + % (rest).
+"Around" → a + ro + % (rest).
+ 
+ 
+
