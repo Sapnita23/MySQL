@@ -1,0 +1,101 @@
+The IN operator allows you to specify multiple values in a WHERE clause.
+ 
+Return all customers from 'Germany', 'France', or 'UK'
+ 
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...);
+ 
+Selects all products with a price between 10 and 20
+ Selects all products with a price between 10 and 20:
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20;
+ 
+To display the products outside the range  use NOT BETWEEN
+ 
+SELECT * FROM Products
+WHERE Price NOT BETWEEN 10 AND 20;
+ 
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID IN (1,2,3);
+ 
+selects all products with a ProductName alphabetically between Carnarvon Tigers and Mozzarella di Giovanni
+ 
+SELECT * FROM Products
+WHERE ProductName BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+ 
+selects all products with a ProductName between Carnarvon Tigers and Chef Anton's Cajun Seasoning
+ 
+SELECT * FROM Products
+WHERE ProductName BETWEEN "Carnarvon Tigers" AND "Chef Anton's Cajun Seasoning"
+ORDER BY ProductName;
+ 
+statement selects all products with a ProductName not between Carnarvon Tigers and Mozzarella di Giovanni:
+ 
+SELECT * FROM Products
+WHERE ProductName NOT BETWEEN 'Carnarvon Tigers' AND 'Mozzarella di Giovanni'
+ORDER BY ProductName;
+ 
+selects all orders with an OrderDate between '01-July-1996' and '31-July-1996'
+ 
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN #07/01/1996# AND #07/31/1996#;
+ 
+SELECT * FROM Orders
+WHERE OrderDate BETWEEN '1996-07-01' AND '1996-07-31';
+
+------------------------------------------------------
+SQL aliases are used to give a table, or a column in a table, a temporary name.
+Aliases are often used to make column names more readable.
+An alias only exists for the duration of that query.
+An alias is created with the AS keyword.
+ 
+SELECT CustomerID AS ID
+FROM Customers;
+ 
+SELECT CustomerID ID
+FROM Customers;
+ 
+Menaga (Unverified) no longer has access to the chat.
+
+ 
+When alias is used on column:
+SELECT column_name AS alias_name
+FROM table_name;
+When alias is used on table:
+SELECT column_name(s)
+FROM table_name AS alias_name;
+
+statement creates two aliases, one for the CustomerID column and one for the CustomerName column
+ 
+SELECT CustomerID AS ID, CustomerName AS Customer
+FROM Customers;
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them
+ 
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+ 
+The INNER JOIN keyword selects records that have matching values in both tables.
+ 
+Products table with the Categories table, by using the CategoryID field from both tables
+ 
+SELECT ProductID, ProductName, CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+ 
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+
+(INNER) JOIN: Returns records that have matching values in both tables
+LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+ 
+ 
+ 
